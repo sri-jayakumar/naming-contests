@@ -27,7 +27,7 @@ module.exports = {
     },
   },
   rules: {
-    "react/prop-types": "off",
+    "react/prop-types": [2],
     "react/react-in-jsx-scope": "off",
     indent: ['error', 2, {SwitchCase: 1}],
     'linebreak-style': ['error', 'unix'],
