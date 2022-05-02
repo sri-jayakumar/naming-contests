@@ -1,0 +1,17 @@
+.ContestPreview
+{
+  margin: 8px;
+  border: $border-default;
+
+  &-category
+  {
+    background-color: $gray-1;
+    border-bottom: $border-default;
+    padding: 4px;
+  }
+
+  &-name
+  {
+    padding: 4px;
+  }
+}
