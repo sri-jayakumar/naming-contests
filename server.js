@@ -8,15 +8,20 @@ const server = express();
 server.use(sassMiddleware({
   src: path.join(__dirname, 'sass'),
   dest: path.join(__dirname, 'public'),
-  outputStyle: "compressed",
+  outputStyle: 'compressed',
   debug: true
-}))
+}));
 server.set('view engine', 'ejs');
-import './serverRender';
+import serverRender from './serverRender';
 server.get('/', (req, res) => {
-  res.render('index', {
-    content: 'Hello from ExpressJS and <em>EJS</em>!',
-  });
+  serverRender()
+    .then(({ initialData, initialMarkup }) => {
+      res.render('index', {
+        content: initialMarkup,
+        initialData
+      });
+    })
+    .catch(console.error);
 });
 
 server.use('/api', apiRouter);

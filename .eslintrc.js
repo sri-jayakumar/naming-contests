@@ -1,39 +1,29 @@
 module.exports = {
-  parser: "babel-eslint",
+  parser: '@babel/eslint-parser',
   env: {
     browser: true,
     commonjs: true,
     es6: true,
     node: true,
-    jest: true,
+    jest: true
   },
+  extends: ['eslint:recommended', 'plugin:react/recommended', 'plugin:react-hooks/recommended'],
   parserOptions: {
-    ecmaVersion: 2020,
     ecmaFeatures: {
-      impliedStrict: true,
-      jsx: true,
+      jsx: true
     },
-    sourceType: "module",
+    sourceType: 'module',
+    ecmaVersion: 8,
+    requireConfigFile: false
   },
-  plugins: ["react", "react-hooks"],
-  extends: [
-    "eslint:recommended",
-    "plugin:react/recommended",
-    "plugin:react-hooks/recommended",
-  ],
-  settings: {
-    react: {
-      version: "detect",
-    },
-  },
+  plugins: ['react', 'react-hooks'],
   rules: {
-    "react/prop-types": [2],
-    "react/react-in-jsx-scope": "off",
-    indent: ['error', 2, {SwitchCase: 1}],
-    'linebreak-style': ['error', 'unix'],
+    indent: ['error', 2, { SwitchCase: 1 }],
     quotes: ['error', 'single'],
     semi: ['error', 'always'],
-    'no-console': ['warn', {allows: ['clear', 'info', 'error', 'dir', 'trace']}],
-    // You can do more rule customizations here...
-  },
+    'no-console': [
+      'warn',
+      { allow: ['clear', 'info', 'error', 'dir', 'trace'] }
+    ]
+  }
 };
